@@ -33,7 +33,7 @@
 (defn contains-range? [range-descriptor other-range-descriptor]
   (let [[lower upper] (closed-open-interval range-descriptor)
         [other-lower other-upper] (closed-open-interval other-range-descriptor)]
-    (and (<= lower other-lower) (>= upper other-upper))))
+    (<= lower other-lower other-upper upper)))
 
 (def end-points numbers)
 
