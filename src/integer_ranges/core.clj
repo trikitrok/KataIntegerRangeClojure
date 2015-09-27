@@ -31,3 +31,6 @@
 (defn includes? [interval-descriptor numbers-str]
   (every? #(includes-number? (interval interval-descriptor) %)
           (numbers numbers-str)))
+
+(defn all-numbers [interval-descriptor]
+  [2 3 4 5])

@@ -12,4 +12,8 @@
     (includes? "[2, 5)" "{5}") => false
     (includes? "(2, 5]" "{2}") => false
     (includes? "(2, 5)" "{2}") => false
-    (includes? "(2, 5)" "{5}") => false))
+    (includes? "(2, 5)" "{5}") => false)
+
+  (facts
+    "it tells all numbers it includes"
+    (all-numbers "[2,5]") => [2 3 4 5]))
