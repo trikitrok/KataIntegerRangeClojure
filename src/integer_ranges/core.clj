@@ -41,10 +41,7 @@
 (defn end-points [range-descriptor]
   (numbers range-descriptor))
 
-(defn- any? [fn coll]
-  (not= nil (some fn coll)))
-
 (defn overlaps? [range-descriptor other-range-descriptor]
   (let [[lower upper] (interval range-descriptor)
         [other-lower other-upper] (interval other-range-descriptor)]
-    (< lower other-upper)))
+    (and (< lower other-upper) (> upper other-lower))))

@@ -34,4 +34,5 @@
   (fact
     "it knows when two ranges overlap"
     (overlaps? "[2,10)" "[9,10)") => true
-    (overlaps? "[2,10)" "[1,2)") => false))
+    (overlaps? "[2,10)" "[1,2)") => false
+    (overlaps? "[2,10)" "[10,12)") => false))
