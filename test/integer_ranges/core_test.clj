@@ -16,4 +16,5 @@
 
   (facts
     "it tells all numbers it includes"
-    (all-numbers "[2,5]") => [2 3 4 5]))
+    (all-numbers "[2,5]") => [2 3 4 5]
+    (all-numbers "[1,5]") => [1 2 3 4 5]))

@@ -33,4 +33,4 @@
           (numbers numbers-str)))
 
 (defn all-numbers [interval-descriptor]
-  [2 3 4 5])
+  (apply range (interval interval-descriptor)))
