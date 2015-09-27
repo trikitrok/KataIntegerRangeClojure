@@ -48,7 +48,8 @@
     (overlaps? "[2,10)" "[10,20)") => false)
 
   (fact
-    "it knows if two intervals are equal or not"
+    "it knows if two intervals are equal or not
+    (being equal means that they include the same numbers)"
     (equals? "[2,10)" "[9,10)") => false
     (equals? "[5,8]" "[5,8]") => true
     (equals? "[5,8]" "[5,9)") => true
