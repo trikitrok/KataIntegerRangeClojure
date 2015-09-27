@@ -14,10 +14,11 @@
       (string/split #",")))
 
 (defn- numbers [numbers-list-descriptor]
-  (map #(Integer/parseInt (str %)) (numbers-descriptors numbers-list-descriptor)))
+  (map #(Integer/parseInt (str %))
+       (numbers-descriptors numbers-list-descriptor)))
 
 (defn- brackets [range-descriptor]
-  (let [stripped_descriptor (clojure.string/replace range-descriptor #" " "")]
+  (let [stripped_descriptor (string/replace range-descriptor #" " "")]
     [(first stripped_descriptor) (last stripped_descriptor)]))
 
 (defn- closed-open-interval [interval-descriptor]
@@ -30,8 +31,9 @@
   (<= lower number (dec upper)))
 
 (defn includes? [interval-descriptor numbers-descriptor]
-  (every? #(includes-number? (closed-open-interval interval-descriptor) %)
-          (numbers numbers-descriptor)))
+  (every?
+    #(includes-number? (closed-open-interval interval-descriptor) %)
+    (numbers numbers-descriptor)))
 
 (defn all-numbers [interval-descriptor]
   (apply range (closed-open-interval interval-descriptor)))
