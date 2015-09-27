@@ -25,7 +25,8 @@
     "it knows when it contains another range"
     (contains-range? "[2,10)" "[2,5]") => true
     (contains-range? "(2,10]" "[2,5]") => false
-    (contains-range? "[2,4]" "[2,5]") => false)
+    (contains-range? "[2,4]" "[2,5]") => false
+    (contains-range? "[2,4]" "[2,5)") => true)
 
   (fact
     "it knows its end points"
@@ -41,7 +42,10 @@
     (overlaps? "[3,5)" "[2,10]") => true
     (overlaps? "[9,10)" "[2,10)") => true
     (overlaps? "[1,2)" "[2,10)") => false
-    (overlaps? "[1,2)" "[5,10)") => false)
+    (overlaps? "[1,2)" "[5,10)") => false
+    (overlaps? "[2,10]" "(10,20)") => false
+    (overlaps? "[2,10]" "[10,20)") => true
+    (overlaps? "[2,10)" "[10,20)") => false)
 
   (fact
     "it knows if two intervals are equal or not"
