@@ -1,8 +1,9 @@
 # integer-ranges
-
-The project uses [Midje](https://github.com/marick/Midje/).
+[Integer Range kata](http://codingdojo.org/cgi-bin/index.pl?KataRange)
 
 ## How to run the tests
+
+The project uses [Midje](https://github.com/marick/Midje/).
 
 `lein midje` will run all tests.
 
