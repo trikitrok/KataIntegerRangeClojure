@@ -17,7 +17,7 @@
 (defn- end-points [range-descriptor]
   (let [[lower upper] (numbers range-descriptor)
         [opening-bracket closing-bracket] (brackets range-descriptor)]
-    [lower
+    [(if (= opening-bracket \[) lower (inc lower))
      (if (= closing-bracket \]) (inc upper) upper)]))
 
 (defn- make-range [range-descriptor]
