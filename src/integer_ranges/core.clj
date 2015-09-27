@@ -13,11 +13,8 @@
       remove-brackets
       (string/split #",")))
 
-(defn- parse-int [number-descriptor]
-  (Integer/parseInt (str number-descriptor)))
-
 (defn- numbers [numbers-list-descriptor]
-  (map parse-int (numbers-descriptors numbers-list-descriptor)))
+  (map #(Integer/parseInt (str %)) (numbers-descriptors numbers-list-descriptor)))
 
 (defn- brackets [range-descriptor]
   (let [stripped_descriptor (clojure.string/replace range-descriptor #" " "")]
