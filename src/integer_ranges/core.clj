@@ -47,4 +47,4 @@
     (and (< lower other-upper) (> upper other-lower))))
 
 (defn equals? [range-descriptor other-range-descriptor]
-  false)
+  (= range-descriptor other-range-descriptor))
