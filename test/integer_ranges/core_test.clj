@@ -6,6 +6,6 @@
   "about Integer range"
 
   (fact
-    "it contains numbers"
-
-    (includes? "[2, 5]" "{2,3,4,5}") => truthy))
+    "it knows which numbers it includes"
+    (includes? "[2, 5]" "{2,3,4,5}") => true
+    (includes? "[2, 5]" "{2,-1}") => false))
