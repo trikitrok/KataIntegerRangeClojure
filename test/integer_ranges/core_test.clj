@@ -3,7 +3,7 @@
   (:use [integer-ranges.core]))
 
 (facts
-  "about Integer range"
+  "about Integer intervals"
 
   (fact
     "it knows which numbers it includes"
@@ -33,7 +33,7 @@
     (end-points "[3,8]") => [3 8])
 
   (fact
-    "it knows when two ranges overlap"
+    "it knows when two intervals overlap"
     (overlaps? "[2,10)" "[9,10)") => true
     (overlaps? "[2,10)" "[1,2)") => false
     (overlaps? "[2,10)" "[10,12)") => false
