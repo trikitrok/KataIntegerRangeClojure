@@ -40,3 +40,6 @@
 
 (defn end-points [range-descriptor]
   (numbers range-descriptor))
+
+(defn overlaps? [range-descriptor other-range-descriptor]
+  true)
