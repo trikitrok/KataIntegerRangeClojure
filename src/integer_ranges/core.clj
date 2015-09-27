@@ -38,8 +38,7 @@
         [other-lower other-upper] (interval other-range-descriptor)]
     (and (<= lower other-lower) (>= upper other-upper))))
 
-(defn end-points [range-descriptor]
-  (numbers range-descriptor))
+(def end-points numbers)
 
 (defn overlaps? [range-descriptor other-range-descriptor]
   (let [[lower upper] (interval range-descriptor)
