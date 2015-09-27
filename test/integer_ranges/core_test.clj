@@ -23,4 +23,5 @@
 
   (facts
     "it knows if it contains another range"
-    (contains-range? "[2,10)" "[2,5]") => true))
+    (contains-range? "[2,10)" "[2,5]") => true
+    (contains-range? "(2,10" "[2,5]") => false))
