@@ -10,4 +10,6 @@
     (includes? "[2, 5]" "{2,3,4,5}") => true
     (includes? "[2, 5]" "{2,-1}") => false
     (includes? "[2, 5)" "{5}") => false
-    (includes? "(2, 5]" "{2}") => false))
+    (includes? "(2, 5]" "{2}") => false
+    (includes? "(2, 5)" "{2}") => false
+    (includes? "(2, 5)" "{5}") => false))
