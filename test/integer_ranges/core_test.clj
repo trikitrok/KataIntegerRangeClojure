@@ -3,7 +3,7 @@
   (:use [integer-ranges.core]))
 
 (facts
-  "about Integer intervals"
+  "about an Integer interval"
 
   (fact
     "it knows which numbers it includes"
