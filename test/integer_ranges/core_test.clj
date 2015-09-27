@@ -41,4 +41,8 @@
     (overlaps? "[3,5)" "[2,10]") => true
     (overlaps? "[9,10)" "[2,10)") => true
     (overlaps? "[1,2)" "[2,10)") => false
-    (overlaps? "[1,2)" "[5,10)") => false))
+    (overlaps? "[1,2)" "[5,10)") => false)
+
+  (fact
+    "it knows if two intervals are equal or not"
+    (equals? "[2,10)" "[9,10)") => false))
