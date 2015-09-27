@@ -38,4 +38,4 @@
 (defn contains-range? [range-descriptor other-range-descriptor]
   (let [[lower upper] (interval range-descriptor)
         [other-lower other-upper] (interval other-range-descriptor)]
-    (<= lower other-lower)))
+    (and (<= lower other-lower) (>= upper other-upper))))
