@@ -42,4 +42,6 @@
         [other-lower other-upper] (closed-open-interval other-range-descriptor)]
     (and (< lower other-upper) (> upper other-lower))))
 
-(def equals? =)
+(defn equals? [range-descriptor other-range-descriptor]
+  (= (closed-open-interval range-descriptor)
+     (closed-open-interval other-range-descriptor)))
