@@ -5,7 +5,7 @@
 (facts
   "about Integer range"
 
-  (fact
+  (facts
     "it knows which numbers it includes"
     (includes? "[2, 5]" "{2,3,4,5}") => true
     (includes? "[2, 5]" "{2,-1}") => false
