@@ -8,7 +8,10 @@
   (apply str (drop-last (drop 1 descriptor))))
 
 (defn- numbers-descriptors [range-descriptor]
-  (string/split (remove-brackets (remove-spaces range-descriptor)) #"," ))
+  (-> range-descriptor
+      remove-spaces
+      remove-brackets
+      (string/split #",")))
 
 (defn- parse-int [number-descriptor]
   (Integer/parseInt (str number-descriptor)))
