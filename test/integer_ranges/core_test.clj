@@ -3,10 +3,10 @@
   (:use [integer-ranges.core]))
 
 (facts
-  "about an Integers interval"
+  "about integer-ranges"
 
   (fact
-    "it knows which numbers it includes"
+    "it knows which numbers an interval includes"
     (includes? "[2, 5]" "{2,3,4,5}") => true
     (includes? "[2, 5]" "{2,-1}") => false
     (includes? "[2, 5)" "{5}") => false
@@ -15,21 +15,21 @@
     (includes? "(2, 5)" "{5}") => false)
 
   (fact
-    "it tells all numbers it includes"
+    "it tells all numbers an interval includes"
     (all-numbers "[2,5]") => [2 3 4 5]
     (all-numbers "[1,5]") => [1 2 3 4 5]
     (all-numbers "(1,5]") => [2 3 4 5]
     (all-numbers "(1,5)") => [2 3 4])
 
   (fact
-    "it knows when it contains another range"
+    "it knows when an interval contains another interval"
     (contains-range? "[2,10)" "[2,5]") => true
     (contains-range? "(2,10]" "[2,5]") => false
     (contains-range? "[2,4]" "[2,5]") => false
     (contains-range? "[2,4]" "[2,5)") => true)
 
   (fact
-    "it knows its end points"
+    "it knows an interval's end points"
     (end-points "[3,8]") => [3 8])
 
   (fact
