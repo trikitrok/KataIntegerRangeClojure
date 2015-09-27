@@ -7,8 +7,8 @@
 (defn- remove-brackets [descriptor]
   (apply str (drop-last (drop 1 descriptor))))
 
-(defn- numbers-descriptors [range-descriptor]
-  (-> range-descriptor
+(defn- numbers-descriptors [descriptor]
+  (-> descriptor
       remove-spaces
       remove-brackets
       (string/split #",")))
@@ -17,13 +17,13 @@
   (map #(Integer/parseInt (str %))
        (numbers-descriptors numbers-list-descriptor)))
 
-(defn- brackets [range-descriptor]
-  (let [stripped_descriptor (string/replace range-descriptor #" " "")]
+(defn- brackets [descriptor]
+  (let [stripped_descriptor (string/replace descriptor #" " "")]
     [(first stripped_descriptor) (last stripped_descriptor)]))
 
-(defn- closed-open-interval [interval-descriptor]
-  (let [[lower upper] (numbers interval-descriptor)
-        [opening-bracket closing-bracket] (brackets interval-descriptor)]
+(defn- closed-open-interval [descriptor]
+  (let [[lower upper] (numbers descriptor)
+        [opening-bracket closing-bracket] (brackets descriptor)]
     [(if (= opening-bracket \[) lower (inc lower))
      (if (= closing-bracket \]) (inc upper) upper)]))
 
@@ -35,21 +35,21 @@
     #(includes-number? (closed-open-interval interval-descriptor) %)
     (numbers numbers-descriptor)))
 
-(defn all-numbers [interval-descriptor]
-  (apply range (closed-open-interval interval-descriptor)))
+(defn all-numbers [descriptor]
+  (apply range (closed-open-interval descriptor)))
 
-(defn contains-range? [range-descriptor other-range-descriptor]
-  (let [[lower upper] (closed-open-interval range-descriptor)
-        [other-lower other-upper] (closed-open-interval other-range-descriptor)]
+(defn contains-range? [descriptor other-descriptor]
+  (let [[lower upper] (closed-open-interval descriptor)
+        [other-lower other-upper] (closed-open-interval other-descriptor)]
     (<= lower other-lower other-upper upper)))
 
 (def end-points numbers)
 
-(defn overlaps? [range-descriptor other-range-descriptor]
-  (let [[lower upper] (closed-open-interval range-descriptor)
-        [other-lower other-upper] (closed-open-interval other-range-descriptor)]
+(defn overlaps? [descriptor other-descriptor]
+  (let [[lower upper] (closed-open-interval descriptor)
+        [other-lower other-upper] (closed-open-interval other-descriptor)]
     (and (< lower other-upper) (> upper other-lower))))
 
-(defn equals? [range-descriptor other-range-descriptor]
-  (= (closed-open-interval range-descriptor)
-     (closed-open-interval other-range-descriptor)))
+(defn equals? [descriptor other-descriptor]
+  (= (closed-open-interval descriptor)
+     (closed-open-interval other-descriptor)))
