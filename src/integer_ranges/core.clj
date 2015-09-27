@@ -1,8 +1,12 @@
 (ns integer-ranges.core)
 
+(defn- remove-spaces [s]
+  (clojure.string/replace s #" " ""))
+
 (defn- numbers-descriptors [range-descriptor]
   (clojure.string/split
-    (apply str (drop-last (drop 1 (clojure.string/replace range-descriptor #" " "")))) #","))
+    (apply str (drop-last (drop 1 (remove-spaces range-descriptor))))
+    #","))
 
 (defn- parse-int [number-descriptor]
   (Integer/parseInt (str number-descriptor)))
