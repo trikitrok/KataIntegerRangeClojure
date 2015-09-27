@@ -19,4 +19,8 @@
     (all-numbers "[2,5]") => [2 3 4 5]
     (all-numbers "[1,5]") => [1 2 3 4 5]
     (all-numbers "(1,5]") => [2 3 4 5]
-    (all-numbers "(1,5)") => [2 3 4]))
+    (all-numbers "(1,5)") => [2 3 4])
+
+  (facts
+    "it knows if it contains another range"
+    (contains-range? "[2,10)" "[2,5]") => true))
