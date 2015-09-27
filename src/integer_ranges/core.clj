@@ -4,10 +4,11 @@
 (defn- remove-spaces [s]
   (string/replace s #" " ""))
 
+(defn- remove-brackets [descriptor]
+  (apply str (drop-last (drop 1 descriptor))))
+
 (defn- numbers-descriptors [range-descriptor]
-  (string/split
-    (apply str (drop-last (drop 1 (remove-spaces range-descriptor))))
-    #","))
+  (string/split (remove-brackets (remove-spaces range-descriptor)) #"," ))
 
 (defn- parse-int [number-descriptor]
   (Integer/parseInt (str number-descriptor)))
