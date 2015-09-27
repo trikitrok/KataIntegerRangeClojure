@@ -23,9 +23,9 @@
 (defn- includes-number? [[lower upper] number]
   (<= lower number (dec upper)))
 
-(defn includes? [interval-descriptor numbers-str]
+(defn includes? [interval-descriptor numbers-descriptor]
   (every? #(includes-number? (closed-open-interval interval-descriptor) %)
-          (numbers numbers-str)))
+          (numbers numbers-descriptor)))
 
 (defn all-numbers [interval-descriptor]
   (apply range (closed-open-interval interval-descriptor)))
