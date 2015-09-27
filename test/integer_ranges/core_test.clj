@@ -25,4 +25,8 @@
     "it knows when it contains another range"
     (contains-range? "[2,10)" "[2,5]") => true
     (contains-range? "(2,10]" "[2,5]") => false
-    (contains-range? "[2,4]" "[2,5]") => false))
+    (contains-range? "[2,4]" "[2,5]") => false)
+
+  (facts
+    "it knows its end points"
+    (end-points "[3,8]") => [3 8]))

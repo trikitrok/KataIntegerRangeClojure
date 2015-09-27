@@ -14,13 +14,11 @@
   (let [stripped_descriptor (clojure.string/replace range-descriptor #" " "")]
     [(first stripped_descriptor) (last stripped_descriptor)]))
 
-(defn- end-points [interval-descriptor]
+(defn- interval [interval-descriptor]
   (let [[lower upper] (numbers interval-descriptor)
         [opening-bracket closing-bracket] (brackets interval-descriptor)]
     [(if (= opening-bracket \[) lower (inc lower))
      (if (= closing-bracket \]) (inc upper) upper)]))
-
-(def ^:private interval end-points)
 
 (defn- range->set [[lower upper]]
   (set (range lower upper)))
@@ -39,3 +37,6 @@
   (let [[lower upper] (interval range-descriptor)
         [other-lower other-upper] (interval other-range-descriptor)]
     (and (<= lower other-lower) (>= upper other-upper))))
+
+(defn end-points [range-descriptor]
+  (numbers range-descriptor))
