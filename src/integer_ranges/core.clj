@@ -46,5 +46,4 @@
         [other-lower other-upper] (interval other-range-descriptor)]
     (and (< lower other-upper) (> upper other-lower))))
 
-(defn equals? [range-descriptor other-range-descriptor]
-  (= range-descriptor other-range-descriptor))
+(def equals? =)
