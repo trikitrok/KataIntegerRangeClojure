@@ -1,10 +1,11 @@
-(ns integer-ranges.core)
+(ns integer-ranges.core
+  (:require [clojure.string :as string]))
 
 (defn- remove-spaces [s]
-  (clojure.string/replace s #" " ""))
+  (string/replace s #" " ""))
 
 (defn- numbers-descriptors [range-descriptor]
-  (clojure.string/split
+  (string/split
     (apply str (drop-last (drop 1 (remove-spaces range-descriptor))))
     #","))
 
